@@ -1,0 +1,11 @@
+{
+  "name": "hello_express",
+  "version": "0.0.1",
+  "description": "hello world express.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mario Vizcaino",
+  "license": "MIT"
+}
