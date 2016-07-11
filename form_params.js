@@ -1,25 +1,13 @@
 var http = require('http'),
-    fs = require('fs');
-
+    fs = require('fs'),
+    parser = require('./params_parse.js');
+var p = parser.parse
 http.createServer(function(req,res){
   fs.readFile("./form.html",function(err,html){
     if (req.url.indexOf("favicon.ico")>0){return;}
 
-    var params_arr = [], params=[];
-    if (req.url.indexOf("?")>0){
-      var url_data = req.url.split("?");
-      params_arr = url_data[1].split("&");
-      //[name=mario]
-    }
-    for (var i = 0; i < params_arr.length; i++) {
-      var param = params_arr[i];
-      //name = mario
-      var data = param.split("=");
-      //[name, mario]
-      params[data[0]]= data[1];
-    }
     var html_string = html.toString();
-
+    var params = p(req);
     // expresion regultar para atrapar valores dentro de {}
     var vars = html_string.match(/[^\{\}]+(?=\})/g);
     var name = "Mario";
