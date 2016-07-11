@@ -1,8 +1,5 @@
 var express = require('express');
 var app = express();
-var $ = require('jquery');
-window.$ = $;
-require('bootstrap');
 
 app.set('view engine', 'jade');
 
